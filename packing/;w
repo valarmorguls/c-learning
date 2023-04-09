@@ -1,0 +1,128 @@
+/*************************************************************************
+	> File Name: 13.shared_ptr.cpp
+	> Author: 
+	> Mail: 
+	> Created Time: Wed 05 Apr 2023 10:02:11 AM CST
+ ************************************************************************/
+
+#include <iostream>
+#include <memory>
+using namespace std;
+
+#define BEGINS(x) namespace x {
+#define ENDS(x) } // end of namespace x
+
+BEGINS(test1)
+
+class A {
+public:
+    A() {
+        cout << "default constructor" << endl;
+    }
+    ~A() {
+        cout << "destructor" << endl;
+    }
+
+};
+
+int main() {
+    //A *p = new A();
+    //delete p;
+    shared_ptr<A> p = make_shared<A>();
+    cout << "p.use_count = " << p.use_count() << endl;
+    shared_ptr<A> q = p;
+    cout << "p.use_count = " << p.use_count() << endl;
+    cout << "q.use_count = " << q.use_count() << endl;
+    p = nullptr;
+    cout << "q.use_count = " << q.use_count() << endl;
+    q = nullptr;
+    cout << "q.use_count = " << q.use_count() << endl;
+    cout << "end main" << endl;
+    return 0;
+}
+
+ENDS(test1)
+
+BEGINS(test2)
+
+class A {
+public:
+    A() {
+        cout << "default constructor" << endl;
+    }
+    ~A() {
+        cout << "destructor" << endl;
+    }
+    shared_ptr<A> p;
+};
+
+int main() {
+    shared_ptr<A> p = make_shared<A>();
+    shared_ptr<A> q = make_shared<A>();
+    p->p = q;
+    q->p = p;
+    cout << "p.use_count = " << p.use_count() << endl;
+    cout << "q.use_count = " << q.use_count() << endl;
+    p = nullptr;
+    q = nullptr;
+    cout << "p.use_count = " << p.use_count() << endl;
+    cout << "q.use_count = " << q.use_count() << endl;
+    cout << "end main" << endl;
+    return 0;
+}
+
+ENDS(test2)
+
+BEGINS(test3)
+
+class A {
+public:
+    A() {
+        cout << "default constructor" << endl;
+    }
+    int x, y;
+    ~A() {
+        cout << "destructor" << endl;
+    }
+    shared_ptr<A> p;
+};
+
+class shared_ptr {
+public:
+
+};
+
+shared_ptr make_shared() {
+    
+}
+
+ostream &operator<<(ostream &out, const A &a) {
+    out << "class A : " << a.x << "," << a.y << endl;
+    return out;
+}
+
+int main() {
+    //A *p = new A();
+    //delete p;
+    shared_ptr p = make_shared();
+    p->x = 3, p->y = 4;
+    cout << *p << endl;
+    cout << "p.use_count = " << p.use_count() << endl;
+    shared_ptr<A> q = p;
+    cout << "p.use_count = " << p.use_count() << endl;
+    cout << "q.use_count = " << q.use_count() << endl;
+    p = nullptr;
+    cout << "q.use_count = " << q.use_count() << endl;
+    q = nullptr;
+    cout << "q.use_count = " << q.use_count() << endl;
+    cout << "end main" << endl;
+    return 0;
+}
+
+ENDS(test3)
+
+int main() {
+    //test1::main(); 
+    test2::main();
+    return 0;
+}

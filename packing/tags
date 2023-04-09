@@ -1,0 +1,20 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BEGINS	1.class.cpp	11;"	d	file:
+ENDS	1.class.cpp	12;"	d	file:
+People	1.class.cpp	/^class People {$/;"	c	file:
+People::age	1.class.cpp	/^    int age;$/;"	m	class:People	file:	access:public
+People::height	1.class.cpp	/^    double height;$/;"	m	class:People	file:	access:public
+People::name	1.class.cpp	/^    string name;$/;"	m	class:People	file:	access:public
+People::say	1.class.cpp	/^    void say() {$/;"	f	class:People	access:public	signature:()
+People::weight	1.class.cpp	/^    double weight;$/;"	m	class:People	file:	access:public
+age	1.class.cpp	/^    int age;$/;"	m	class:People	file:	access:public
+height	1.class.cpp	/^    double height;$/;"	m	class:People	file:	access:public
+main	1.class.cpp	/^int main() {$/;"	f	signature:()
+name	1.class.cpp	/^    string name;$/;"	m	class:People	file:	access:public
+say	1.class.cpp	/^    void say() {$/;"	f	class:People	access:public	signature:()
+weight	1.class.cpp	/^    double weight;$/;"	m	class:People	file:	access:public
